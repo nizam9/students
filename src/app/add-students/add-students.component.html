@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Add new Student
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <form [formGroup]=registerForm (submit)="onRegister()">
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">First Name</label>
+          <input class=" form-control field-input " type="text" placeholder="First Name" formControlName="first_name">
+        </ion-col>
+        <ion-col col-3>
+          <label class="required">Last Name</label>
+          <input class="form-control field-input " type="text" placeholder="Last Name" formControlName="last_name">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">Gender</label>
+          <select class="form-control field-input" formControlName="gender">
+            <option selected value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </ion-col>
+        <ion-col col-3>
+          <label class="required">Age</label>
+          <input class="form-control field-input " type="number" placeholder="Age" formControlName="age">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">Father Name</label>
+          <input class=" form-control field-input " type="text" placeholder="Father Name" formControlName="father_name">
+        </ion-col>
+        <ion-col col-3>
+          <label class="required">Mother Name</label>
+          <input class="form-control field-input " type="text" placeholder="Mother Name" formControlName="mother_name">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">Contact Number</label>
+          <input class=" form-control field-input " type="number" placeholder="Contact Number" formControlName="contact_number">
+        </ion-col>
+        <ion-col col-3>
+          <label class="required">Fees</label>
+          <input class=" form-control field-input " type="number" placeholder="Amount" formControlName="fees">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="">School Name</label>
+          <input class=" form-control field-input " type="text" placeholder="School name" formControlName="school_name">
+        </ion-col>
+        <ion-col col-3>
+          <label class="">Class</label>
+          <input class="form-control field-input " type="text" placeholder="Class" formControlName="class">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">Date of Joining</label>
+          <input class="form-control field-input " type="text" (click)="showDatePicker()" placeholder="Date of Joining" formControlName="date_of_joining">
+        </ion-col>
+        <ion-col col-3>
+          <label class="">Referred by</label>
+          <input class=" form-control field-input " type="text" placeholder="Referred by" formControlName="referred_by">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3>
+          <label class="">Address</label>
+          <input class=" form-control field-input " type="text" placeholder="Address" formControlName="address">
+        </ion-col>
+      </ion-row>
+      <div>
+        <button ion-button full class="button btn-primary">Register</button>
+      </div>
+    </form>
+  </ion-grid>
+
+
+</ion-content>
