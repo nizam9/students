@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -8,11 +9,13 @@ import { HttpModule } from '@angular/http';
 
 import { DatePicker } from '@ionic-native/date-picker';
 import { SQLite } from '@ionic-native/sqlite';
+import { Toast } from '@ionic-native/toast';
 
 import { MyApp } from './app.component';
 import { HomePage } from './home/home';
 import { AddStudentsComponent } from '../app/add-students/add-students.component';
 import { ViewStudentsComponent } from '../app/view-students/view-students.component';
+import { EditStudentsComponent } from './edit-students/edit-students.component';
 import { Database } from './database';
 
 @NgModule({
@@ -20,7 +23,8 @@ import { Database } from './database';
     MyApp,
     HomePage,
     AddStudentsComponent,
-    ViewStudentsComponent
+    ViewStudentsComponent,
+    EditStudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { Database } from './database';
     MyApp,
     HomePage,
     AddStudentsComponent,
-    ViewStudentsComponent
+    ViewStudentsComponent,
+    EditStudentsComponent
   ],
   providers: [
     StatusBar,
@@ -41,6 +46,7 @@ import { Database } from './database';
     Database,
     DatePicker,
     SQLite,
+    Toast,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

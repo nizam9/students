@@ -1,7 +1,8 @@
+<!--component html goes here -->
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Add new Student
+      Edit Student Details
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,13 +10,13 @@
 <ion-content padding>
 
   <ion-grid>
-    <form [formGroup]=registerForm (submit)="onRegister()">
-        <ion-row>
-            <ion-col col-3>
-              <label class="required">Unique Student ID</label>
-              <input class=" form-control field-input " type="number" placeholder="Student ID" formControlName="studentID">
-            </ion-col>
-          </ion-row>
+    <form [formGroup]=EditForm (submit)="onUpdate()">
+      <ion-row>
+        <ion-col col-3>
+          <label class="required">Unique Student ID</label>
+          <input class=" form-control field-input " [disabled]="true" type="number" placeholder="Student ID" formControlName="studentID">
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col col-3>
           <label class="required">First Name</label>
@@ -93,7 +94,8 @@
         </ion-col>
       </ion-row>
       <div>
-        <button ion-button full class="button btn-primary">Register</button>
+        <button ion-button full class="button btn-primary" type="button" *ngIf="ShowEdit" (click)="enableEditing()">Edit</button>
+        <button ion-button full class="button btn-primary" type="submit" *ngIf="!ShowEdit">Update</button>
       </div>
     </form>
   </ion-grid>

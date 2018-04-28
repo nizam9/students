@@ -7,16 +7,42 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col col-3>
         <b>NAME</b>
       </ion-col>
       <ion-col col-3>
-        <b>Class</b>
+        <b>Last Name</b>
       </ion-col>
     </ion-row>
-  </ion-grid>
+    <ion-row *ngFor="let student of students">
+      <ion-col col-3>
+        <p>{{student.name}}</p>
+      </ion-col>
+      <ion-col col-3>
+        <p>{{student.class}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <b *ngIf="NoStudentsFound">No Students Added</b> -->
+      <tr [className]="student.statusColor" *ngFor="let student of students; let i='index + 1'" (click)="fetchStudentById(student.studentID)">
+        <td>{{student.studentID}}</td>
+        <td>{{student.first_name}}</td>
+        <td>{{student.class}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 
 </ion-content>
