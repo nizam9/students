@@ -5,7 +5,6 @@ import { DatePipe } from '@angular/common';
 import { DatePicker } from '@ionic-native/date-picker';
 import { Toast } from '@ionic-native/toast';
 import { NavController } from 'ionic-angular';
-
 import { ViewStudentsComponent } from '../view-students/view-students.component';
 
 @Component({
@@ -15,7 +14,7 @@ import { ViewStudentsComponent } from '../view-students/view-students.component'
 })
 export class AddStudentsComponent {
     registerForm: FormGroup;
-
+    public Validate;
     constructor(
         public fb: FormBuilder,
         private datePicker: DatePicker,
@@ -51,47 +50,53 @@ export class AddStudentsComponent {
     createRegisterForm() {
         this.registerForm = this.fb.group({
             studentID: ['', [Validators.required]],
-            first_name: ['nizam', [Validators.required]],
-            last_name: ['shaik', [Validators.required]],
-            father_name: ['khadar', [Validators.required]],
-            mother_name: ['shahina', [Validators.required]],
-            gender: ['male', [Validators.required]],
-            age: [21, [Validators.required]],
-            school_name: ['global', []],
-            contact_number: [3333333333, [Validators.required]],
-            class: ['10', []],
-            fees: [500, [Validators.required]],
-            date_of_joining: ['10-10-2016', [Validators.required]],
-            referred_by: ['abeed', []],
-            address: ['buchi', []]
+            first_name: ['', [Validators.required]],
+            last_name: ['', [Validators.required]],
+            father_name: ['', [Validators.required]],
+            mother_name: ['', [Validators.required]],
+            gender: ['', [Validators.required]],
+            age: [null, [Validators.required]],
+            school_name: ['', []],
+            contact_number: [null, [Validators.required]],
+            class: ['', []],
+            fees: [null, [Validators.required]],
+            date_of_joining: ['', [Validators.required]],
+            referred_by: ['', []],
+            address: ['', []]
         });
     }
 
     onRegister() {
         // console.log(JSON.stringify(this.registerForm.value));
         // console.log('Thanks' + this.registerForm.value.first_name);
-        this._db.addStudent(this.registerForm.value).then((data) => {
-            console.log(JSON.stringify(data), 'Inside success Add-Student');
-            this.toast.show(`New Student Added Successfully`, '5000', 'center').subscribe(
-                toast => {
-                    console.log(toast);
-                });
-            setTimeout(() => {
-                this.navCtrl.push(ViewStudentsComponent);
-            }, 1000)
-
-        }, (error) => {
-            console.log(JSON.stringify(error), 'Inside error Add-Student');
-            if (error.messgae === "sqlite3_step failure: UNIQUE constraint failed: students.studentID") {
-                alert('Student Id already exist');
-            } else {
-                this.toast.show(error.message, '8000', 'center').subscribe(
+        if (this.registerForm.valid) {
+            this._db.addStudent(this.registerForm.value).then((data) => {
+                console.log(JSON.stringify(data), 'Inside success Add-Student');
+                this.toast.show(`New Student Added Successfully`, '5000', 'center').subscribe(
                     toast => {
                         console.log(toast);
                     });
-            }
+                setTimeout(() => {
+                    this.navCtrl.push(ViewStudentsComponent);
+                }, 1000)
 
-        })
+            }, (error) => {
+                console.log(JSON.stringify(error), 'Inside error Add-Student');
+                if (error.messgae === "sqlite3_step failure: UNIQUE constraint failed: students.studentID") {
+                    alert('Student Id already exist');
+                } else {
+                    this.toast.show(error.message, '8000', 'center').subscribe(
+                        toast => {
+                            console.log(toast);
+                        });
+                }
+
+            })
+        } else {
+            this.toast.show(`Please fill all Mandatory Fields`, '7000', 'center').subscribe(
+                toast => {
+                    console.log(toast);
+                });
+        }
     }
-
 }

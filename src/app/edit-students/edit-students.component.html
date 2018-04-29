@@ -1,6 +1,6 @@
 <!--component html goes here -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <ion-title>
       Edit Student Details
     </ion-title>
@@ -8,13 +8,19 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- <p>{{studentID}}</p> -->
 
   <ion-grid>
     <form [formGroup]=EditForm (submit)="onUpdate()">
+      <input class=" form-control field-input " type="hidden" placeholder="Student ID" formControlName="studentID">
       <ion-row>
         <ion-col col-3>
-          <label class="required">Unique Student ID</label>
-          <input class=" form-control field-input " [disabled]="true" type="number" placeholder="Student ID" formControlName="studentID">
+          <label class="required">Student ID</label>
+          <input class=" form-control field-input " type="text" placeholder="Student ID" formControlName="student_id">
+        </ion-col>
+        <ion-col col-3>
+          <label class="required">Last Modified</label>
+          <input class=" form-control field-input " type="text" placeholder="Created Date" formControlName="created_date">
         </ion-col>
       </ion-row>
       <ion-row>
@@ -83,7 +89,7 @@
         </ion-col>
         <ion-col col-3>
           <label class="">Referred by</label>
-          <input class=" form-control field-input " type="text" placeholder="Referred by" formControlName="referred_by">
+          <input class="form-control field-input" type="text" placeholder="Referred by" formControlName="referred_by">
         </ion-col>
       </ion-row>
 

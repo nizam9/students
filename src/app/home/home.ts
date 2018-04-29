@@ -13,8 +13,9 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private db: Database,
-    public loadingCtrl: LoadingController, ) {
-    // this.db.connectToDb()
+    public loadingCtrl: LoadingController,
+  ) {
+    this.db.connectToDb()
   }
 
   addStudents() {

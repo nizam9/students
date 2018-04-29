@@ -6,8 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="body-class">
   <ion-grid class="home-main">
+    
     <ion-row>
       <ion-col col-md-3>
         <div class="blocks">
@@ -16,8 +17,9 @@
           </span>
         </div>
       </ion-col>
-      <!-- </ion-row>
-    <ion-row> -->
+    </ion-row>
+
+    <ion-row>
       <ion-col col-md-3>
         <div class="blocks">
           <span class="blocks-text">
@@ -26,21 +28,6 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-md-3>
-        <div class="blocks">
-          <span class="blocks-text">
-            <a class="links" (click)="collectAttendance()"> Collect Attendance</a>
-          </span>
-        </div>
-      </ion-col>
-      <ion-col col-md-3>
-        <div class="blocks">
-          <span class="blocks-text">
-            <a class="links" (click)="viewAttendance()"> View Attendance</a>
-          </span>
-        </div>
-      </ion-col>
-    </ion-row>
+
   </ion-grid>
 </ion-content>

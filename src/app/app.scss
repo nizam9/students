@@ -12,14 +12,24 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.body-class {
+  background-color: #da9898;
+  background-image: url('../assets/imgs/home.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .blocks {
-  background-color: #ff7800;
+  background-color: #a21b58;
   padding: 15px;
   color: white;
+  text-align: center;
 }
 
 .blocks-text {
-  font-size: 12px;
+  font-size: 25px;
   font-weight: bold;
 }
 
